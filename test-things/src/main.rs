@@ -1,7 +1,10 @@
 use std::io;
-
+mod test_methods;
 fn main() {
-    let tuple:(i8,&'static str,f32) = (2,"hello", 4.5);
+    test_methods::main();
+}
+fn test_methods1(){
+    let _tuple:(i8,&'static str,f32) = (2,"hello", 4.5);
 
     let array:[i32; 5] =[1,4,7,5,12];
     let mut index=String::new();
@@ -9,5 +12,5 @@ fn main() {
 
     let index:usize = index.trim().parse().expect("Please type a number!");
     println!("The value at index {} is {}", index, array[index]);
-
 }
+

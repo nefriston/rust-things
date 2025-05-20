@@ -1,1 +1,1 @@
-C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\test-things\target\debug\test-things.exe: C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\test-things\src\main.rs
+C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\test-things\target\debug\test-things.exe: C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\test-things\src\main.rs C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\test-things\src\test_methods.rs
