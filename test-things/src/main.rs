@@ -14,8 +14,8 @@ fn for_and_range_test(arr: &[i32]) {
         println!("elements of array for in range {}: {}", i, arr[i]);
     }
     let vec: Vec<usize> = (0..arr.len()).collect();
-    for i in vec {
-        println!("elements of array for in vec {}: {}", i, arr[i]);
+    for &i in &vec {
+        println!("elements of array for in vec {}: {}", i , vec[i]);
     }
     println!("sum of array indexes range.sum: {}", (0..arr.len()).sum::<usize>());
     println!("sum of array values arr.iter.sum: {}", arr.iter().sum::<i32>());
