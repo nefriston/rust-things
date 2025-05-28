@@ -1,6 +1,24 @@
-use std::io;
+use std::{array, io, usize};
 fn main() {
-    loop_test();
+    let arr= [1, 2, 3, 4, 5];
+    for_and_range_test(&arr);
+    println!("{:?}",1..10);
+}
+
+
+fn for_and_range_test(arr: &[i32]) {
+    for elements in arr {
+        println!("elements of array for in: {}", elements);
+    }
+    for i in  0..arr.len() {
+        println!("elements of array for in range {}: {}", i, arr[i]);
+    }
+    let vec: Vec<usize> = (0..arr.len()).collect();
+    for i in vec {
+        println!("elements of array for in vec {}: {}", i, arr[i]);
+    }
+    println!("sum of array indexes range.sum: {}", (0..arr.len()).sum::<usize>());
+    println!("sum of array values arr.iter.sum: {}", arr.iter().sum::<i32>());
 }
 
 
