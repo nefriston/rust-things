@@ -1,8 +1,6 @@
 use std::{array, io, usize};
 fn main() {
-    let arr= [1, 2, 3, 4, 5];
-    for_and_range_test(&arr);
-    println!("{:?}",1..10);
+    
 }
 
 

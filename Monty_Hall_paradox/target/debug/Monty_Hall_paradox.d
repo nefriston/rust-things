@@ -1,0 +1,1 @@
+C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\Monty_Hall_paradox\target\debug\Monty_Hall_paradox.exe: C:\Users\Ali\ Zelenskikh\Documents\поделки\rust\ поделки\rust-things\Monty_Hall_paradox\src\main.rs
