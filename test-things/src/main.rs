@@ -1,6 +1,50 @@
 use std::{array, io, usize};
 fn main() {
-    
+    let arr:[i32;5]= [1, 4, 7, 5, 12];
+    for_and_range_test(&arr);
+}
+fn ownership_test() {
+
+    {
+        let s1 = String::from("hello1");
+        let s2 = s1; // s1 is moved to s2, s1 is no longer valid
+        // println!("{}", s1); // This line would cause a compile-time error
+        println!("{}", s2); // This works fine too
+    }
+    // s2 goes out of scope here, and the memory is freed
+
+    {
+        let s1 = String::from("hello2");
+        let s2 = s1.clone(); // s1 is cloned to s2, both are valid
+        println!("{}", s1); // This works fine
+        println!("{}", s2); // This works fine too
+    }
+
+    {
+        let s1 =5;
+        let s2 = s1; // s1 is copied to s2, both are valid
+        println!("{}", s1); // This works fine
+        println!("{}", s2); // Has its own copy because i32 implements Copy trait
+    }
+
+    {
+        let arr1 = [1, 4, 7, 5, 12];  // i32 implements Copy
+        let arr2 = arr1;  // arr1 is copied to arr2
+        println!("arr1: {:?}", arr1);  // Still valid
+        println!("arr2: {:?}", arr2);  // Has its own copy if add element without copy trait it wouldt work
+    }
+    {
+        let s1 = String::from("hello3");
+        let s2=10;
+        take_ownership(s1); // s1 is moved to the function
+        make_copy(s2); // s2 is copied to the function
+    }
+}
+fn take_ownership(s: String) {
+    println!("{}", s);
+}
+fn make_copy(s: i32) {
+    println!("{}", s);
 }
 
 
@@ -13,10 +57,10 @@ fn for_and_range_test(arr: &[i32]) {
     }
     let vec: Vec<usize> = (0..arr.len()).collect();
     for &i in &vec {
-        println!("elements of array for in vec {}: {}", i , vec[i]);
+        println!("elements of array for in vec {}: {}", i , arr[i]);
     }
-    println!("sum of array indexes range.sum: {}", (0..arr.len()).sum::<usize>());
-    println!("sum of array values arr.iter.sum: {}", arr.iter().sum::<i32>());
+    println!("sum of array indexes range: {}", (0..arr.len()).sum::<usize>());
+    println!("sum of array values arr.iter: {}", arr.iter().sum::<i32>());
 }
 
 
@@ -32,6 +76,7 @@ fn loop_test_2(){
     };
     println!("The square number is {}", square_number);
 }
+
 fn loop_test() {
     let mut count = 0;
     'counting_up: loop {
