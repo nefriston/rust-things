@@ -1,10 +1,8 @@
 use std::{array, io, usize};
 fn main() {
-    let arr:[i32;5]= [1, 4, 7, 5, 12];
-    for_and_range_test(&arr);
+    ownership_and_reference_test();
 }
-fn ownership_test() {
-
+fn ownership_and_reference_test() {
     {
         let s1 = String::from("hello1");
         let s2 = s1; // s1 is moved to s2, s1 is no longer valid
@@ -33,12 +31,33 @@ fn ownership_test() {
         println!("arr1: {:?}", arr1);  // Still valid
         println!("arr2: {:?}", arr2);  // Has its own copy if add element without copy trait it wouldt work
     }
+
     {
         let s1 = String::from("hello3");
         let s2=10;
         take_ownership(s1); // s1 is moved to the function
         make_copy(s2); // s2 is copied to the function
     }
+
+
+    {
+        let mut s1 = String::from("hello4");
+        take_reference(&s1); // s1 is borrowed, still valid after this line
+        take_mut_reference(&mut s1); // s1 is borrowed mutably, still valid after this line but until the end of the scope cant create reference
+    }
+
+    {
+        let mut s1 = String::from("hello5");
+        let r1 = &s1; // immutable borrow
+        println!("r1: {}", r1);
+        // s1.push_str(", world!"); // This line would cause a compile-time error because s1 is borrowed immutably
+    }
+}
+fn take_mut_reference(s: &mut String) {
+    println!("{}", s);
+}
+fn take_reference(s: &String) {
+    println!("{}", s);
 }
 fn take_ownership(s: String) {
     println!("{}", s);
