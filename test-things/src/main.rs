@@ -1,7 +1,19 @@
 use std::{array, io, usize};
 fn main() {
-    ownership_and_reference_test();
+    
 }
+
+fn first_word(s: &str) -> &str{
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' '{
+            return &s[0..i];
+        }
+    }
+    return &s[..];
+}
+
+
 fn ownership_and_reference_test() {
     {
         let s1 = String::from("hello1");
@@ -95,6 +107,7 @@ fn loop_test_2(){
     };
     println!("The square number is {}", square_number);
 }
+
 
 fn loop_test() {
     let mut count = 0;
