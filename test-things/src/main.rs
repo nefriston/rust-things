@@ -1,7 +1,29 @@
 use std::{array, io, usize};
+mod user;
+use crate::user::User;
 fn main() {
-    
+
 }
+
+fn struct_test(){
+    let user1= build_user(String::from("user1"), String::from("gmail.com"));
+    let user2= User{
+        email: String::from("email.com"),
+        username: String::from("user2"),
+        ..user1
+    };
+    println!("User1: {}, {}, {}, {}", user1.active, user1.username, user1.email, user1.sign_in_count);
+    println!("User2: {}, {}, {}, {}", user2.active, user2.username, user2.email, user2.sign_in_count);
+}
+fn build_user(username: String, email: String) -> User {
+    User {
+        active: true,
+        username,
+        email ,
+        sign_in_count: 1,
+    }
+}
+
 
 fn first_word(s: &str) -> &str{
     let bytes = s.as_bytes();
